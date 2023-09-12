@@ -30,6 +30,9 @@ public class Main {
 
         for (int i = 0; i < data.length; i++) {
             data[i] = data[i].replace("\"", "");
+            if (data[i].length() > 10) {
+                throw new Exception("Длина строки превышает 10 символов");
+            }
         }
 
         String result = "";
