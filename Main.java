@@ -8,7 +8,6 @@ public class Main {
         char action;
         if (exp.contains(" + ")) {
             data = exp.split(" \\+ ");
-
             action = '+';
         } else if (exp.contains(" - ")) {
             data = exp.split(" - ");
@@ -22,7 +21,7 @@ public class Main {
         } else {
             throw new Exception("Некорректный знак действия");
         }
-//
+
         if (action == '*' || action == '/') {
             if (data[1].contains("\"")) {
                 throw new Exception("Строчку можно делить или умножать только на число");
@@ -52,6 +51,10 @@ public class Main {
         } else {
             int newLen = data[0].length() / Integer.parseInt(data[1]);
             result = data[0].substring(0, newLen);
+        }
+
+        if (result.length() > 40) {
+            result = result.substring(0, 40) + "...";
         }
 
         printInQuotes(result);
